@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SideBar</title>
+</head>
+
+<body>
+
+
+	<div class="modal fade" id="modalEditar" th:fragment="modal">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Resumen</h4>
+					<img src="/images/logo-login.png" width="70" height="70" alt="">
+				</div>
+				<!-- Modal Main -->
+				<div class="modal-body">
+					<form action="">
+						<!--  General -->
+						<div class="form-group">
+							<input type="hidden" id="id-reserva-editar"
+									th:value="${reserva.idReserva}">
+							<div class="controls-main col-lg-12">
+								<label for="ticket">Id_Ticket</label>
+								<div class="controls">
+									<input type="text" id="ticket" class="form-control" name="ticket" disabled
+									th:value="${reserva.ticket}">
+								</div>
+							</div>
+							<div class="controls-main col-lg-12">
+								<label for="nombres">Nombres Completos</label>
+								<div class="controls">
+									<input type="text" id="nombres" class="form-control" name="nombres" disabled
+									th:value="${reserva.consumidor.persona.nombreCompletos}">
+								</div>
+							</div>
+							<div class="controls-main col-lg-12">
+								<label for="telefono">Telefono</label>
+								<div class="controls">
+									<input type="tel" id="telefono" class="form-control" name="telefono" disabled
+									th:value="${reserva.consumidor.persona.telefono}">
+								</div>
+							</div>
+
+							<div class="controls-main col-lg-12">
+								<label for="correo">Correo Electronico</label>
+								<div class="controls">
+									<input type="email" id="correo" class="form-control" name="correo" disabled
+									th:value="${reserva.consumidor.persona.correo}">
+								</div>
+							</div>
+
+							<div class="controls-main col-lg-12">
+								<label for="fecha-reserva-editar">Fecha de Reserva</label>
+								<div class="controls">
+									<input class="input form-control" type="date" id="fecha-reserva-editar"
+									th:value="${reserva.horarioReserva.fecha}">
+<!--									<select class="form-select">-->
+<!--										<option value="blank"></option>-->
+<!--										<option value="28/06/2023">1</option>-->
+<!--										<option value="29/06/2023" selected>29/06/2023</option>-->
+<!--										<option value="30/06/2023">3</option>-->
+<!--									</select>-->
+								</div>
+							</div>
+
+							<div class="controls-main col-lg-12">
+								<label for="horario">Horario</label>
+								<div class="controls combo-horarios">
+									<div th:replace="~{fragments/reservas-combo-horarios :: combo}"></div>
+									
+<!--									<select class="form-select">-->
+<!--										<option value="blank"></option>-->
+<!--										<option value="1">1</option>-->
+<!--										<option value="2" selected>14:04:06</option>-->
+<!--										<option value="3">3</option>-->
+<!--									</select>-->
+								</div>
+							</div>
+
+							<div class="controls-main col-lg-12">
+								<label for="numero-personas">Cantidad de Personas</label>
+								<div class="controls">
+									<input class="input form-control" type="number" id="numero-personas" max="8" min="1"
+									th:value="${reserva.cantidadPersonas}">
+									
+<!--									<select class="form-select">-->
+<!--										<option value="blank"></option>-->
+<!--										<option value="1">1</option>-->
+<!--										<option value="2" selected>2</option>-->
+<!--										<option value="3">3</option>-->
+<!--									</select>-->
+								</div>
+							</div>
+
+							<div class="controls-main col-lg-12">
+								<label class="comentarios"></i>Comentarios Adicionales</label>
+								<div class="controls">
+									<textarea name="comentarios" class="form-control" id="comentarios"
+										placeholder="Ingrese sus comentarios aquí"
+										th:value="${reserva.comentariosAdicionales}"
+										th:text="${reserva.comentariosAdicionales}"></textarea>
+								</div>
+							</div>
+							<div class="controls-main col-lg-12">
+								<label for="fruit">Estado</label>
+								<div class="controls">
+									<input type="text" id="estado" class="form-control" name="estado" disabled
+									th:value="${reserva.estadoReserva.nombreEstado}">
+									
+<!--									<select class="form-select">-->
+<!--										<option value="blank"></option>-->
+<!--										<option value="Pendiente">Pendiente</option>-->
+<!--										<option value="Asistio" selected>Asistio</option>-->
+<!--										<option value="Cancelado">Cancelado</option>-->
+<!--									</select>-->
+								</div>
+							</div>
+
+						</div>
+					</form>
+				</div>
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn button-editar btn-success" id="btn-confirmar-editar">Editar</button>
+					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+				</div>
+				<!--  -->
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

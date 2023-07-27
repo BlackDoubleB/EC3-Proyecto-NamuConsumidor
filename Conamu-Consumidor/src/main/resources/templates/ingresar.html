@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- google fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+	<!-- Icon -->
+	<link rel="icon" type="image/png" sizes="16x16" href="/images/icon-ventana.png">
+	<!--  -->
+	<!-- Estilos -->
+	<link rel="stylesheet" href="/css/ingresar.css">
+	<script src="/js/jquery-3.7.0.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+	<title>Login</title>
+</head>
+
+<body>
+	<header class="header">
+		<div class="header__conteiner">
+			<a href="/">
+				<img class="menu" src="/images/icon-home.png" alt="">
+			</a>
+			<img class="menu2" src="/images/icon-home2.png" alt="">
+
+		</div>
+	</header>
+
+	<main class="main">
+
+		<div class="main__conteiner">
+
+			<div class="conteiner__div">
+
+				<img class="logo" src="/images/logo-login.png" alt="logo">
+				<h1>Iniciar Sesión</h1>
+				<p>¡Ingresa a nuestra ventana de login y déjanos llevarte a un viaje gastronomico inolvidable en
+					Restaurante Namu!</p>
+
+				<form class="section__form">
+					<label class="label1">
+						<input class="input1" type="text" placeholder="Usuario" id="username" />
+					</label>
+					<label class="label2">
+						<input class="input2" type="password" placeholder="Password" id="password" />
+					</label>
+					<button class="btn-ing" type="button" id="btn-ingresar">Ingresar</button>
+					<div class="ol-con">
+						<a href="#">Olvido su contraseña?</a>
+					</div>
+				</form>
+			</div>
+
+			<div class="conteiner__div2">
+				<a class="crear-cuenta" href="/crear-cuenta">Crea tu cuenta aquí</a>
+			</div>
+		</div>
+
+	</main>
+
+	<script src="/js/ingresar.js"></script>
+</body>
+
+</html>

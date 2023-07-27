@@ -1,0 +1,176 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	width: 100%;
+	height: 100vh;
+	font-family: 'Poppins', sans-serif;
+}
+
+header{
+	width: 100%;
+	height: 12%;
+	background-image: url(../images/fondo-login-admin.png);
+	background-size:contain;
+	filter: brightness(40%);
+}
+
+.container-p{
+	background-color: #d4cbcb;
+	width: 100%;
+	height: 88%;
+	display: flex;
+	align-items: center;
+	place-content: center;
+}
+
+h1{
+	margin: 10px 0 10px;
+	font-size: 25px;
+	color: #343A40;
+	font-weight: 500;
+}
+::placeholder {
+	color: rgba(22, 20, 20, 0.404);
+  }
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 24px 46px 50px;
+	gap: 24px;
+	font-size: 20px;
+	width: 390px;
+	height: 70%;
+	color: #344767;
+	background: white;
+	border-radius: 24px;
+ 	box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.247);
+
+}
+
+.thumbnail img {
+	height: 140px;
+	width: 100%;
+	margin: 1px 0;
+}
+
+.form input {
+	outline: 0;
+	background: #f2f2f2;
+	width: 100%;
+	border:  1px solid rgba(0, 0, 0, 0.219);
+	margin: 0 0 15px;
+	padding: 15px;
+	border-radius: 10px;
+	font-size: 14px;
+}
+
+.form .button {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 40px;
+	background: #343A40;
+	border-radius: 8px;
+	flex-grow: 0;
+	color: white;
+	font-size: 15px;
+}
+.button:hover{
+	background: #444749;
+}
+
+
+.message {
+	margin-top: 25px;
+
+}
+
+.message, a {
+	display: flex;
+	text-decoration: none;
+	color: black;
+	font-size: 12px;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 10px;
+	align-items: center;
+}
+
+/* media querys  */
+@media screen and (max-width: 774px) {
+	.form {
+		width: 50%;
+	}
+	
+  }
+  @media screen and (max-width: 644px) {
+	.thumbnail img {
+		height: 100px;
+		width: 100%;
+	}
+  }
+
+  @media screen and (max-width: 472px){
+	.message, a {
+		text-align: center;
+	}
+	h1{
+		font-size:15px ;
+	}
+  }
+  @media screen and (max-width: 360px) {
+	h1{
+		font-size:15px ;
+	}
+	.form {
+		width: 70%;
+	}
+	
+	::placeholder {
+		font-size: 0.7rem;
+	  }
+	.message, a {
+		font-size: 10px;
+		text-align: center;
+	}
+
+	.thumbnail img {
+		height: 90px;
+		width: 90%;
+	}
+	.form {
+		gap: 10px;
+		width: 80%;
+	}
+  }
+
+  @media screen and (max-height: 807px){
+	.thumbnail img {
+		height: 90px;
+		width: 90%;
+	}
+	.form{
+		gap: 2%;
+	}
+  } 
+
+  @media screen and (max-height: 705px){
+	.thumbnail img {
+		height: 90px;
+		width: 90%;
+	}
+	.form{
+		gap: 0;
+	}
+	input{
+		height: 15px;
+	}
+
+  } 

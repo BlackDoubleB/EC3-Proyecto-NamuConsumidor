@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SideBar</title>
+</head>
+
+<body>
+
+	<table th:fragment="table">
+		<thead style="background-color:  #6ab04c ;">
+			<tr>
+				<th>Ticket</th>
+				<th>Nombres Completos</th>
+				<th>Correo</th>
+				<th>Fecha</th>
+				<th>Horario</th>
+				<th>N° Personas</th>
+				<th>Estado</th>
+				<th>Acción</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${reservas.empty}">
+				<td colspan="8"> No hay registros </td>
+			</tr>
+
+			<tr th:each="Reserva : ${reservas}">
+				<td><span th:text="${Reserva.ticket}"> </span></td>
+				<td><span th:text="${Reserva.consumidor.persona.nombreCompletos}"> </span></td>
+				<td><span th:text="${Reserva.consumidor.persona.correo}"> </span></td>
+				<td><span th:text="${Reserva.horarioReserva.fecha}"> </span></td>
+				<td><span th:text="${Reserva.horarioReserva.horario}"> </span></td>
+				<td><span th:text="${Reserva.cantidadPersonas}"> </span></td>
+				<td><span th:text="${Reserva.estadoReserva.nombreEstado}"> </span></td>
+				<td class="accion">
+					<div class="text-center editar-reserva" th:if="${Reserva.estadoReserva.idEstadoReserva == 1}">
+						<div class="btn-group">
+							<button class="btn btn-dark btn-editar-reserva" th:data-id-reserva="${Reserva.idReserva}"><i
+									class="bi bi-pencil-fill"></i></button>
+						</div>
+					</div>
+
+					<div class="text-center -ver-reserva">
+						<div class="btn-group">
+							<button class="btn btn-dark btn-ver-reserva" th:data-id-reserva="${Reserva.idReserva}"><i
+									class="bi bi-eye-fill"></i></button>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+.main-buscar-datagrid{
+	margin: 30px auto;
+	width: 90%;
+	height: 90%;
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 10% auto;
+}
+.form-control{
+    background-color: rgba(236, 239, 239, 0.359)!important;
+}
+
+@media screen and (min-width: 694px) {
+    .main-buscar-datagrid{
+        grid-template-columns: 0.5fr;
+       
+    }
+   
+  }
+
+  @media screen and (max-height: 694px) {
+    .main-buscar-datagrid{
+		grid-template-rows: 10% 0.5fr;
+       
+    }
+   
+	.controls input,select{
+		height: 30px !important;
+	}
+  }

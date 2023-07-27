@@ -1,0 +1,221 @@
+/* Formulario  */
+.buscar-mis-reservas {
+    width: 200px !important;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.bu-buscar:hover{
+	background-color: #044e73;
+	cursor: pointer	;
+}
+
+.cliente{
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+}
+.bu-buscar{
+	margin-top: 10px;
+	font-size: 16px;
+	font-family: 'Roboto', sans-serif;
+	width: 110px;
+	text-align: center;
+	padding: 4px;
+	border-radius: 10px;
+	background-color:#006699;
+	color: white;
+	border: 1px solid rgba(11, 11, 11, 0.297);
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+/* TABLA */
+.main-buscar-datagrid{
+	margin: 30px auto;
+	width: 90%;
+	height: 90%;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 10% 10% 1fr;
+}
+.datagrid table { 
+	border-collapse: collapse; 
+	text-align: left; 
+	width: 100%; 
+} 
+
+.datagrid {
+	margin-top: 10px;
+    font: normal 12px/150% Arial, Helvetica, sans-serif;
+    background: #fff;
+    /* overflow: hidden; */
+    border: 1px solid #63656571;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 10px;
+	height: 450px;
+	overflow-y: auto;
+	align-self: end;
+	-webkit-box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.36);
+	-moz-box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.36);
+	box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.36);
+}
+
+.main-buscar-datagrid > .datagrid {
+	height: 80%; 
+  }
+.accion{
+	display: flex;
+	gap: 5px;
+	justify-content: center;
+}
+
+.button-editar{
+background-color: #006699;
+color: white;
+padding: 4px 6px;
+cursor: pointer;
+border-radius: 5px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+border: 1px solid #63656571;
+}
+.button-editar:hover{
+	background-color: #063952;
+}
+.datagrid table td {
+    padding: 3px 10px;
+}
+
+.datagrid table th{
+	padding: 5px 10px;
+}
+
+.datagrid table thead th {
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: bold;
+    border-left: 1px solid #00000016;
+}
+
+.datagrid table thead th:first-child {
+    border: none;
+}
+
+
+
+.datagrid table tbody td {
+    color: #000000;
+    border-left: 1px solid #00000016;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.datagrid table tbody .alt td {
+    background: #d9e4df;
+    color:  #000000;
+}
+
+.datagrid table tbody td:first-child {
+    border-left: none;
+}
+
+.datagrid table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.datagrid table tfoot td div {
+    border-top: 1px solid #006699;
+    background: #E1EEF4;
+}
+
+.datagrid table tfoot td {
+    padding: 0;
+    font-size: 12px;
+}
+
+.datagrid table tfoot td div {
+    padding: 2px;
+}
+
+.datagrid table tfoot td ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: right;
+}
+
+.datagrid table tfoot li {
+    display: inline;
+}
+
+.datagrid table tfoot li a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 1px;
+    color: #FFFFFF;
+    border: 1px solid #006699;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F));
+    background: -moz-linear-gradient(center top, #006699 5%, #00557F 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');
+    background-color: #006699;
+}
+
+.datagrid table tfoot ul.active,
+.datagrid table tfoot ul a:hover {
+    text-decoration: none;
+    border-color: #006699;
+    color: #FFFFFF;
+    background: none;
+    background-color: #00557F;
+}
+
+tr{
+	text-align: center;
+}
+
+.datagrid table tbody tr:hover td {
+	background-color: #c0c0c0;
+}
+
+table tr:nth-child(even) td {
+	background-color: #d9e4df;
+}
+
+
+/* Media scrool */
+@media (max-width: 1354px) {
+    .datagrid {
+        overflow-x: auto;
+    }
+}
+
+
+/* MODALLLLLLLLLLLLL */
+.controls input,textarea,select {
+	width: 100% !important;
+	border-radius: 3px !important;
+	background-color: #abafaa12 !important;
+	border: 1px solid rgba(0, 0, 0, 0.231) !important;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+}
+
+.controls textarea{
+	height: 70px;
+}
+
+.controls-main{
+	margin-bottom: 10px;
+}
+
+.button-guardar {
+	background-color:#006699;
+	color: white;
+}
+.button-guardar:hover{
+	background-color:#094b6c;
+	color: white;
+}

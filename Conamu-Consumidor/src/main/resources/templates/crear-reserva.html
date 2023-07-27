@@ -1,0 +1,263 @@
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Iconos -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+	<link rel="icon" type="image/png" sizes="16x16" href="/images/icon-ventana.png">
+	<!-- Font-Family -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,300&display=swap"
+		rel="stylesheet">
+	<!-- Boostrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Css -->
+	<link rel="stylesheet" href="/css/crear-reserva.css">
+	<!--    <link rel="stylesheet" href="/css/sidebar-c.css">-->
+	<script src="/js/jquery-3.7.0.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+	<title>Crear Reservas</title>
+</head>
+
+<body class="active">
+
+	<div th:replace="~{fragments/sidebar :: sidebar}"></div>
+
+	<div class="caja">
+		<!-- CAJA RESERVA-->
+		<div class="container-p">
+			<div class="main-buscar-datagrid">
+
+				<h1>Crear Reserva</h1>
+
+				<input type="hidden" id="id-consumidor" th:value="${usuario.idConsumidor}">
+
+				<div class="controls-main col-lg-12">
+					<label for="nombres">Nombres Completos</label>
+					<div class="controls">
+						<input type="text" id="nombres" class="form-control" name="nombres" disabled th:value="${usuario.persona.nombreCompletos}">
+					</div>
+				</div>
+				<div class="controls-main col-lg-12">
+					<label for="telefono">Telefono</label>
+					<div class="controls">
+						<input type="tel" id="telefono" class="form-control" name="telefono" disabled th:value="${usuario.persona.telefono}">
+					</div>
+				</div>
+
+				<div class="controls-main col-lg-12">
+					<label for="correo">Correo Electronico</label>
+					<div class="controls">
+						<input type="email" id="correo" class="form-control" name="correo" disabled  th:value="${usuario.persona.correo}">
+					</div>
+				</div>
+
+				<div class="controls-main col-lg-12">
+					<label for="fecha-reserva">Fecha de Reserva</label>
+					<div class="controls">
+						<input class="input form-control" type="date" id="fecha-reserva">
+
+						<!--						<select class="form-select form-control ">-->
+						<!--							<option value="blank"></option>-->
+						<!--							<option value="28/06/2023">1</option>-->
+						<!--							<option value="29/06/2023" selected>29/06/2023</option>-->
+						<!--							<option value="30/06/2023">3</option>-->
+						<!--						</select>-->
+					</div>
+				</div>
+
+				<div class="controls-main col-lg-12">
+					<label for="horario">Horario</label>
+					<div class="controls combo-horarios">
+						<div th:replace="~{fragments/reservas-combo-horarios :: combo}"></div>
+						
+<!--						<select class="form-select form-control" id="horario">-->
+<!--							<option value="blank"></option>-->
+<!--							<option value="1">1</option>-->
+<!--							<option value="2" selected>14:04:06</option>-->
+<!--							<option value="3">3</option>-->
+<!--						</select>-->
+					</div>
+				</div>
+
+				<div class="controls-main col-lg-12">
+					<label for="numero-personas">Cantidad de Personas</label>
+					<div class="controls">
+						<input class="input form-control" type="number" id="numero-personas" max="8" min="1">
+
+<!--						<select class="form-select form-control">-->
+<!--							<option value="blank"></option>-->
+<!--							<option value="1">1</option>-->
+<!--							<option value="2" selected>2</option>-->
+<!--							<option value="3">3</option>-->
+<!--						</select>-->
+					</div>
+				</div>
+
+				<div class="controls-main col-lg-12">
+					<label class="infor-text" for="comentarios">Comentarios Adicionales</label>
+					<div class="controls">
+						<textarea name="comentarios" class="form-control" id="comentarios"
+							placeholder="Ingrese sus comentarios aquí"></textarea>
+					</div>
+				</div>
+				<div class="d-flex justify-content-between gap-2 mt-2">
+					<button type="button" class="btn btn-warning " id="btn-limpiar">Limpiar</button>
+					<button type="button" class="btn btn-primary" id="btn-enviar">Enviar Reserva</button>
+				</div>
+
+				<!-- The Modal 1 -->
+				<div class="modal" id="modalReservaRealizada">
+					<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+						<div class="modal-content">
+							<!-- Modal Header -->
+
+							<!-- Modal body -->
+							<div class="modal-body d-flex flex-column justify-content-center align-items-center">
+								<img src="./images/confirmacion.png" alt="" class="img-fluid my-5"
+									style="max-width: 50%; height: 40%;">
+								<h4 class="my-4">Reserva Realizada!</h4>
+							</div>
+							<!-- Modal footer -->
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary" id="btn-ver-ticket" data-id-reserva="">Ver ticket</button>
+								<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				
+				<div class="modals">
+				</div>
+				
+				<!-- Fin Modal -->
+				<!-- The Modal Ver Ticket -->
+<!--				<div class="modal fade" id="myModalVerTicket">-->
+<!--					<div class="modal-dialog modal-dialog-centered">-->
+<!--						<div class="modal-content">-->
+<!--							 Modal Header -->
+<!--							<div class="modal-header">-->
+<!--								<h4 class="modal-title">Resumen</h4>-->
+<!--								<img src="./images/logo-login.png" width="70" height="70" alt="">-->
+<!--							</div>-->
+<!--							 Modal Main -->
+<!--							<div class="modal-body">-->
+<!--								<form action="">-->
+<!--									  General -->
+<!--									<div class="form-group">-->
+<!--										<div class="controls-main col-lg-12">-->
+<!--											<label for="name">Id_Ticket</label>-->
+<!--											<div class="controls">-->
+<!--												<input type="text" id="name" class="form-control" name="name">-->
+<!--											</div>-->
+<!--										</div>-->
+<!--										<div class="controls-main col-lg-12">-->
+<!--											<label for="name">Nombres Completos</label>-->
+<!--											<div class="controls">-->
+<!--												<input type="text" id="name" class="form-control" name="name">-->
+<!--											</div>-->
+<!--										</div>-->
+<!--										<div class="controls-main col-lg-12">-->
+<!--											<label for="phone">Telefono</label>-->
+<!--											<div class="controls">-->
+<!--												<input type="tel" id="phone" class="form-control" name="phone">-->
+<!--											</div>-->
+<!--										</div>-->
+
+<!--										<div class="controls-main col-lg-12">-->
+<!--											<label for="email">Correo Electronico</label>-->
+<!--											<div class="controls">-->
+<!--												<input type="text" id="email" class="form-control" name="email">-->
+<!--											</div>-->
+<!--										</div>-->
+
+<!--										<div class="controls-main col-lg-12">-->
+<!--											<label for="fruit">Fecha de Reserva</label>-->
+<!--											<div class="controls">-->
+<!--												<select class="form-select">-->
+<!--													<option value="blank"></option>-->
+<!--													<option value="28/06/2023">1</option>-->
+<!--													<option value="29/06/2023" selected>29/06/2023</option>-->
+<!--													<option value="30/06/2023">3</option>-->
+<!--												</select>-->
+<!--											</div>-->
+<!--										</div>-->
+
+<!--										<div class="controls-main col-lg-12">-->
+<!--											<label for="fruit">Horario</label>-->
+<!--											<div class="controls">-->
+<!--												<select class="form-select">-->
+<!--													<option value="blank"></option>-->
+<!--													<option value="1">1</option>-->
+<!--													<option value="2" selected>14:04:06</option>-->
+<!--													<option value="3">3</option>-->
+<!--												</select>-->
+<!--											</div>-->
+<!--										</div>-->
+
+<!--										<div class="controls-main col-lg-12">-->
+<!--											<label for="fruit">Cantidad de Personas</label>-->
+<!--											<div class="controls">-->
+<!--												<select class="form-select">-->
+<!--													<option value="blank"></option>-->
+<!--													<option value="1">1</option>-->
+<!--													<option value="2" selected>2</option>-->
+<!--													<option value="3">3</option>-->
+<!--												</select>-->
+<!--											</div>-->
+<!--										</div>-->
+
+<!--										<div class="controls-main col-lg-12">-->
+<!--											<label class="infor-text"></i>Comentarios Adicionales</label>-->
+<!--											<div class="controls">-->
+<!--												<textarea name="comments" class="form-control" id="comments"-->
+<!--													placeholder="Ingrese sus comentarios aquí"></textarea>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--										<div class="controls-main col-lg-12">-->
+<!--											<label for="fruit">Estado</label>-->
+<!--											<div class="controls">-->
+<!--												<select class="form-select">-->
+<!--													<option value="blank"></option>-->
+<!--													<option value="Pendiente">Pendiente</option>-->
+<!--													<option value="Asistio" selected>Asistio</option>-->
+<!--													<option value="Cancelado">Cancelado</option>-->
+<!--												</select>-->
+<!--											</div>-->
+<!--										</div>-->
+
+<!--									</div>-->
+<!--								</form>-->
+<!--							</div>-->
+<!--							 Modal footer -->
+<!--							<div class="modal-footer">-->
+<!--								<button type="button" class="btn button-descargar btn-success"-->
+<!--									data-bs-dismiss="modal">Descargar</button>-->
+<!--								<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>-->
+<!--							</div>-->
+<!--							  -->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+				<!-- Fin Modal -->
+
+
+
+			</div>
+		</div>
+		<!-- Bostrap -->
+		<!-- Js -->
+	</div>
+	<script src="/js/script.js"></script>
+	<script src="/js/crear-reserva.js"></script>
+</body>
+
+</html>

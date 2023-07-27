@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SideBar</title>
+</head>
+
+<body>
+
+	<!-- Contenedor wrapper -->
+	<div class="wrapper" th:fragment="sidebar">
+		<link rel="stylesheet" href="/css/sidebar-c.css">
+		<div class="section">
+			<div class="top_navbar">
+				<div class="hamburger">
+					<div>
+						<i class="fas fa-bars"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Sidebar -->
+		<div class="sidebar">
+			<div class="profile">
+				<h3>RESTAURANTE NAMU</h3>
+				<hr>
+				<img src="/images/logo-fondo-blanco-menu.png" alt="">
+				<h3 style="text-transform: uppercase;" th:text="${usuario.persona.nombreCompletos}"></h3>
+				<p th:text="${usuario.rol.nombreRol}"></p>
+			</div>
+			<ul>
+				<li>
+					<a class="one" href="/crear-reserva">
+						<span class="icon"><i class="fas fa-plus-circle"></i></span>
+						<span class="item">Crear Reserva</span>
+					</a>
+				</li>
+				<li>
+					<a href="/mis-reservas">
+						<span class="icon"><i class="fas fa-search"></i></span>
+						<span class="item">Mis Reservas</span>
+					</a>
+				</li>
+				<li>
+					<a href="/carta">
+						<span class="icon"><i class="fas fa-book-open"></i></span>
+						<span class="item p-lg-3">Ver Carta</span>
+					</a>
+				</li>
+				<li>
+					<a href="/" id="cerrar-sesion">
+						<span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+						<span class="item">Cerrar Sesión</span>
+					</a>
+				</li>
+			</ul>
+		</div><!-- Fin Sidebar -->
+	</div>
+	<!-- Fin Contenedor -->
+
+</body>
+
+</html>

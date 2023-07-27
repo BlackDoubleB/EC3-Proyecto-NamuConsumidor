@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Combo Horarios</title>
+</head>
+
+<body>
+
+	<select class="form-select form-control" id="horario" th:fragment="combo">
+		<option th:if="${horarios.empty}" value="" disabled selected> No hay Horarios disponibles </option>
+
+		<option th:if="${horarios.empty == false}" value="" disabled selected> Seleccione un horario </option>
+		<option th:each="Horario : ${horarios}" th:value="${Horario.idHorarioReserva}" th:text="${Horario.horario}">
+		</option>
+
+		<!--			<option value="blank"></option>-->
+		<!--			<option value="1">1</option>-->
+		<!--			<option value="2" selected>14:04:06</option>-->
+		<!--			<option value="3">3</option>-->
+	</select>
+
+
+</body>
+
+</html>
